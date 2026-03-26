@@ -210,6 +210,16 @@ router.delete('/accounts/:user', (req, res) => {
 // ***************************************************************************
 
 // Add 'api` prefix to all routes
+
+app.get('/api/health', (req, res) => {
+    res.json({
+        status: 'ok',
+        version: pkg.version,
+        student: 'Chen Xue',
+        timestamp: new Date().toISOString()
+    });
+});
+
 app.use(apiPrefix, router);
 
 // Start the server
